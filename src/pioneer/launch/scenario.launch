@@ -1,0 +1,20 @@
+<launch>
+
+
+   <!-- Gazebo  -->
+  <include file="$(find warehouse_world)/warehouse.launch" />
+
+  <!-- Robot with diff drive -->
+  <include file="$(find pioneer)/launch/pioneer3dx.gazebo.launch">
+     <arg name="robot_name" value="pioneer3dx" />
+     <!-- x position has been MODIFIED FROM 0 -->
+     <arg name="robot_position" value="-x 0.0 -y 0.0 -z 0.0 -R 0 -P 0 -Y +1.57" />
+   </include>
+
+  <node pkg="tf" type="static_transform_publisher" name="base_to_odom_pioneer3dx"
+     args="0.0 -0.0 0.0 0.0 0.0 0.0 base_link pioneer3dx/odom 200" />
+
+  <!-- RVIZ -->
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find pioneer)/launch/pioneer3dx.rviz" />
+
+</launch>

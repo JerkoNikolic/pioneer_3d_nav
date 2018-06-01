@@ -1,0 +1,8 @@
+prefix=/home/nikola/zavrsni/pioneer_3d_nav/devel
+
+Name: warehouse_world
+Description: Description of warehouse_world
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/nikola/zavrsni/pioneer_3d_nav/devel/lib 
+Requires: 

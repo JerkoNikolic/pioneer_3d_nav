@@ -1,0 +1,2 @@
+pioneer:warehouse_world
+-DCATKIN_DEVEL_PREFIX=/home/nikola/zavrsni/pioneer_3d_nav/devel -DCMAKE_INSTALL_PREFIX=/home/nikola/zavrsni/pioneer_3d_nav/install -G Unix Makefiles
