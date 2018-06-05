@@ -292,7 +292,7 @@ Visualization Manager:
       Draw Behind: false
       Enabled: true
       Name: Map
-      Topic: /map
+      Topic: /pioneer3dx/map
       Unreliable: false
       Use Timestamp: false
       Value: true
