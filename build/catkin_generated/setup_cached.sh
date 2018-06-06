@@ -8,3 +8,4 @@
 
 # modified environment variables
 export PWD="/home/nikola/zavrsni/pioneer_3d_nav/build"
+export PYTHONPATH="/home/nikola/zavrsni/pioneer_3d_nav/devel/lib/python2.7/dist-packages:$PYTHONPATH"

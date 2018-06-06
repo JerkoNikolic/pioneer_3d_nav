@@ -1,0 +1,26 @@
+{
+    "configurations": [
+        {
+            "browse": {
+                "databaseFilename": "",
+                "limitSymbolsToIncludedHeaders": true,
+                "path": [
+                    "/opt/ros/kinetic/include",
+                    "/home/nikola/zavrsni/pioneer_3d_nav/src/warehouse_world/include",
+                    "/usr/include"
+                ]
+            },
+            "includePath": [
+                "/opt/ros/kinetic/include",
+                "/home/nikola/zavrsni/pioneer_3d_nav/src/warehouse_world/include",
+                "/usr/include"
+            ],
+            "name": "Linux",
+            "intelliSenseMode": "clang-x64",
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c11",
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
+}
