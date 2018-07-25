@@ -81,7 +81,7 @@
       <heading_deg>0</heading_deg>
     </spherical_coordinates>
     <model name='cardboard_box'>
-      <pose frame=''>0.973181 3.11775 0.15 0 -0 0</pose>
+      <pose frame=''>-0.382239 1.15431 0.15 0 -0 0</pose>
       <link name='link'>
         <inertial>
           <mass>2</mass>
@@ -137,7 +137,7 @@
       </link>
     </model>
     <model name='cardboard_box_0'>
-      <pose frame=''>-0.375158 1.77142 0.15 0 -0 0</pose>
+      <pose frame=''>0.516479 2.09175 0.15 0 -0 0</pose>
       <link name='link'>
         <inertial>
           <mass>2</mass>
@@ -253,10 +253,10 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
       </link>
-      <pose frame=''>0.695281 2.00006 0 0 -0 0</pose>
+      <pose frame=''>-0.374068 2.89688 0 0 -0 0</pose>
     </model>
-    <model name='aruco_visual_marker_5'>
-      <link name='marker'>
+    <model name='aruco_visual_marker_7_pad'>
+      <link name='aruco_visual_marker_7::marker'>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <visual name='visual'>
           <geometry>
@@ -266,9 +266,9 @@
           </geometry>
           <material>
             <script>
-              <uri>model://aruco_visual_marker_5/materials/scripts</uri>
-              <uri>model://aruco_visual_marker_5/materials/textures</uri>
-              <name>ArucoVisualMarker5/Marker</name>
+              <uri>model://aruco_visual_marker_7/materials/scripts</uri>
+              <uri>model://aruco_visual_marker_7/materials/textures</uri>
+              <name>ArucoVisualMarker7/Marker</name>
             </script>
             <ambient>1 1 1 1</ambient>
             <diffuse>1 1 1 1</diffuse>
@@ -308,8 +308,8 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
       </link>
-      <link name='marker_pad'>
-        <pose frame='marker'>0 0 -1e-05 0 -0 0</pose>
+      <link name='aruco_visual_marker_7::marker_pad'>
+        <pose frame='aruco_visual_marker_7::marker'>0 0 -1e-05 0 -0 0</pose>
         <visual name='visual'>
           <geometry>
             <box>
@@ -359,9 +359,9 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
       </link>
-      <joint name='marker_JOINT_marker_pad' type='revolute'>
-        <parent>marker</parent>
-        <child>marker_pad</child>
+      <joint name='aruco_visual_marker_7::marker_JOINT_marker_pad' type='revolute'>
+        <parent>aruco_visual_marker_7::marker</parent>
+        <child>aruco_visual_marker_7::marker_pad</child>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <axis>
           <xyz>0 0 1</xyz>
@@ -378,47 +378,262 @@
       </joint>
       <static>1</static>
       <allow_auto_disable>1</allow_auto_disable>
-      <pose frame=''>0.157582 2.49483 0 0 -0 0</pose>
+      <link name='marker_pad_large'>
+        <pose frame='aruco_visual_marker_7::marker'>-0.035 0 -1e-05 0 -0 0</pose>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>0.297 0.21 1e-05</size>
+            </box>
+          </geometry>
+          <material>
+            <lighting>1</lighting>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/White</name>
+            </script>
+            <ambient>0.3 0.3 0.3 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
+            <specular>0.01 0.01 0.01 1</specular>
+            <emissive>1 1 1 0</emissive>
+            <shader type='vertex'>
+              <normal_map>__default__</normal_map>
+            </shader>
+          </material>
+          <cast_shadows>1</cast_shadows>
+          <transparency>0</transparency>
+        </visual>
+        <collision name='collision'>
+          <laser_retro>0</laser_retro>
+          <max_contacts>10</max_contacts>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.297 0.21 1e-05</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>1</mu2>
+                <fdir1>0 0 0</fdir1>
+                <slip1>0</slip1>
+                <slip2>0</slip2>
+              </ode>
+              <torsional>
+                <coefficient>1</coefficient>
+                <patch_radius>0</patch_radius>
+                <surface_radius>0</surface_radius>
+                <use_patch_radius>1</use_patch_radius>
+                <ode>
+                  <slip>0</slip>
+                </ode>
+              </torsional>
+            </friction>
+            <bounce>
+              <restitution_coefficient>0</restitution_coefficient>
+              <threshold>1e+06</threshold>
+            </bounce>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
+              <collide_bitmask>1</collide_bitmask>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1</kd>
+                <max_vel>0.01</max_vel>
+                <min_depth>0</min_depth>
+              </ode>
+              <bullet>
+                <split_impulse>1</split_impulse>
+                <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1</kd>
+              </bullet>
+            </contact>
+          </surface>
+        </collision>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+      </link>
+      <link name='marker_num'>
+        <pose frame='marker_pad_large'>-0.14 0 1e-05 0 -0 0</pose>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>0.05 0.05 1e-05</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://aruco_visual_marker_7_pad/materials/scripts</uri>
+              <uri>model://aruco_visual_marker_7_pad/materials/textures</uri>
+              <name>ArucoVisualMarker7/Num</name>
+            </script>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>0 0 0 1</specular>
+            <emissive>1 1 1 0</emissive>
+            <shader type='vertex'>
+              <normal_map>__default__</normal_map>
+            </shader>
+          </material>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <cast_shadows>1</cast_shadows>
+          <transparency>0</transparency>
+        </visual>
+        <collision name='collision'>
+          <laser_retro>0</laser_retro>
+          <max_contacts>10</max_contacts>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.05 0.05 1e-05</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>1</mu2>
+                <fdir1>0 0 0</fdir1>
+                <slip1>0</slip1>
+                <slip2>0</slip2>
+              </ode>
+              <torsional>
+                <coefficient>1</coefficient>
+                <patch_radius>0</patch_radius>
+                <surface_radius>0</surface_radius>
+                <use_patch_radius>1</use_patch_radius>
+                <ode>
+                  <slip>0</slip>
+                </ode>
+              </torsional>
+            </friction>
+            <bounce>
+              <restitution_coefficient>0</restitution_coefficient>
+              <threshold>1e+06</threshold>
+            </bounce>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
+              <collide_bitmask>1</collide_bitmask>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1</kd>
+                <max_vel>0.01</max_vel>
+                <min_depth>0</min_depth>
+              </ode>
+              <bullet>
+                <split_impulse>1</split_impulse>
+                <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1</kd>
+              </bullet>
+            </contact>
+          </surface>
+        </collision>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+      </link>
+      <joint name='marker_JOINT_marker_pad_large' type='revolute'>
+        <parent>aruco_visual_marker_7::marker</parent>
+        <child>marker_pad_large</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <upper>0</upper>
+            <lower>0</lower>
+          </limit>
+          <use_parent_model_frame>0</use_parent_model_frame>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <joint name='pad_large_JOINT_marker_num' type='revolute'>
+        <parent>marker_pad_large</parent>
+        <child>marker_num</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <upper>0</upper>
+            <lower>0</lower>
+          </limit>
+          <use_parent_model_frame>0</use_parent_model_frame>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <static>1</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose frame=''>0.033166 3.33178 0 0 -0 0</pose>
     </model>
     <state world_name='default'>
-      <sim_time>457 391000000</sim_time>
-      <real_time>459 776704151</real_time>
-      <wall_time>1529168788 500496448</wall_time>
-      <iterations>457391</iterations>
-      <model name='aruco_visual_marker_5'>
-        <pose frame=''>0.090605 2.49499 0.204098 1.57001 -0 0</pose>
+      <sim_time>334 11000000</sim_time>
+      <real_time>36 322426999</real_time>
+      <wall_time>1531348422 395992673</wall_time>
+      <iterations>34523</iterations>
+      <model name='aruco_visual_marker_7_pad'>
+        <pose frame=''>0.033166 3.63897 0.331145 1.62018 -0 0</pose>
         <scale>1 1 1</scale>
-        <link name='marker'>
-          <pose frame=''>0.090605 2.49499 0.204098 1.57001 -0 0</pose>
+        <link name='aruco_visual_marker_7::marker'>
+          <pose frame=''>0.033166 3.63897 0.331145 1.62018 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
-        <link name='marker_pad'>
-          <pose frame=''>0.090605 2.495 0.204098 1.57001 -0 0</pose>
+        <link name='aruco_visual_marker_7::marker_pad'>
+          <pose frame=''>0.033166 3.63898 0.331146 1.62018 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+        <link name='marker_num'>
+          <pose frame=''>-0.106834 3.63896 0.331145 1.62018 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+        <link name='marker_pad_large'>
+          <pose frame=''>-0.001834 3.63898 0.331146 1.62018 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
       <model name='cardboard_box'>
-        <pose frame=''>0.793111 1.09481 0.149 0 -0 0</pose>
+        <pose frame=''>-0.407426 2.81847 0.149 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>0.793111 1.09481 0.149 0 -0 0</pose>
+          <pose frame=''>-0.407426 2.81847 0.149 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 -1.9e-05 0 0.000128 2e-06 0</acceleration>
-          <wrench>1e-06 -3.8e-05 1e-06 0 -0 0</wrench>
+          <acceleration>0 -1.9e-05 0 0.000128 -2e-06 0</acceleration>
+          <wrench>-1e-06 -3.8e-05 1e-06 0 -0 0</wrench>
         </link>
       </model>
       <model name='cardboard_box_0'>
-        <pose frame=''>-0.375158 1.77142 0.149 0 -0 0</pose>
+        <pose frame=''>0.516479 2.09175 0.149 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>-0.375158 1.77142 0.149 0 -0 0</pose>
+          <pose frame=''>0.516479 2.09175 0.149 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 -1.9e-05 0 0.000128 2e-06 0</acceleration>
-          <wrench>1e-06 -3.8e-05 1e-06 0 -0 0</wrench>
+          <acceleration>0 -1.9e-05 0 0.000128 -2e-06 0</acceleration>
+          <wrench>-1e-06 -3.8e-05 1e-06 0 -0 0</wrench>
         </link>
       </model>
       <model name='ground_plane'>
@@ -432,10 +647,10 @@
         </link>
       </model>
       <model name='wood_cube_10cm'>
-        <pose frame=''>0.695281 2.00006 -0.001013 0 -0 0</pose>
+        <pose frame=''>-0.031937 1.15071 -0.001013 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>0.695281 2.00006 0.048987 0 -0 0</pose>
+          <pose frame=''>-0.031937 1.15071 0.048987 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -447,7 +662,7 @@
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose frame=''>1.4976 -3.0049 5.53467 -0 0.607643 1.55619</pose>
+        <pose frame=''>0.091361 -2.22521 2.48656 0 0.663643 1.42419</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>

@@ -1,0 +1,9 @@
+<launch>
+
+        <node name="aruco_detect" pkg="aruco_detect" type="aruco_detect" >
+            <remap from="camera_info" to="/camera/depth/camera_info" />
+            <remap from="camera" to="/camera/depth/image_raw" />
+            <param name="publish_images" value="true" />
+            <param name="dictionary" value="9" />
+        </node>
+</launch>

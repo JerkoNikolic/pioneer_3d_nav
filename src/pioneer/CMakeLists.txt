@@ -15,7 +15,11 @@ catkin_package()
 
 add_executable(keyboard_drive nodes/keyboard_drive.cpp)
 target_link_libraries(keyboard_drive ${catkin_LIBRARIES})
-add_dependencies(keyboard_drive beginner_tutorials_generate_messages_cpp)
+#add_dependencies(keyboard_drive beginner_tutorials_generate_messages_cpp)
+
+
+#add_executable(aligned_laser_scan_merger nodes/aligned_laser_scan_merger.cpp)
+#target_link_libraries(aligned_laser_scan_merger ${catkin_LIBRARIES})
 #
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
